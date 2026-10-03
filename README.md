@@ -1,1 +1,1 @@
-# ksrm.github.io
+# https://mdshorabali.github.io/ksrm/
