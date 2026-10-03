@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toolbox Talk & Shift Huddle</title>
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    padding:0;
+    background:#eee;
+    color:#000;
+    font-family:"Times New Roman",Times,serif;
+}
+
+.page{
+    position:relative;
+    width:210mm;
+    min-height:297mm;
+    margin:auto;
+    padding:15mm 20mm;
+    background:#fff;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header{
+    margin-left:0;
+    margin-bottom:15px;
+}
+
+.header h1{
+    margin:0;
+    font-size:14pt;
+    font-weight:bold;
+    line-height:1.15;
+}
+
+.header h2{
+    margin:0;
+    font-size:11pt;
+    font-weight:bold;
+    line-height:1.15;
+}
+
+.header p{
+    margin:0;
+    font-size:10pt;
+    line-height:1.2;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:15px;
+    font-size:9pt;
+}
+
+th,td{
+    border:1px solid #999;
+    padding:4px 6px;
+    vertical-align:middle;
+}
+
+th{
+    background:#000;
+    color:#fff;
+    font-weight:bold;
+    line-height:1.15;
+}
+
+/* =========================================================
+   INPUTS / SELECTS / TEXTAREAS
+   ========================================================= */
+
+input,select,textarea{
+    font-family:"Times New Roman",Times,serif;
+    font-size:10pt;
+    line-height:1.2;
+    color:#000;
+    background:#fff;
+    border:0;
+    outline:0;
+    box-shadow:none;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea{
+    width:100%;
+    padding:2px 3px;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    outline:none;
+    background:#fff;
+}
+
+/* =========================================================
+   CHECKBOXES
+   ========================================================= */
+
+input[type="checkbox"]{
+    width:auto;
+    margin:0 5px 0 0;
+    accent-color:#000;
+    vertical-align:middle;
+}
+
+/* =========================================================
+   INFO TABLE
+   ========================================================= */
+
+.info-table td{
+    height:30px;
+}
+
+.info-table .label{
+    width:30px;
+    font-size:10pt;
+    font-weight:bold;
+    line-height:1.1;
+}
+
+.info-table td.label input[type="time"]{
+    width:calc(100% - 38px);
+    display:inline-block;
+    padding:2px 3px;
+    vertical-align:middle;
+}
+
+/* =========================================================
+   SHIFT
+   ========================================================= */
+
+.shift{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    white-space:nowrap;
+    font-family:Arial,sans-serif;
+    font-size:9pt;
+    line-height:1;
+}
+
+.shift b{
+    margin-right:2px;
+    line-height:1;
+}
+
+.shift label{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin:0;
+    padding:0;
+    line-height:1;
+}
+
+.shift input[type="checkbox"]{
+    width:15px;
+    height:15px;
+    margin:0;
+    padding:0;
+    vertical-align:middle;
+}
+
+/* =========================================================
+   SELECT / DROPDOWN
+   ========================================================= */
+
+.select-wrap{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.select-wrap select{
+    width:100%;
+    height:100%;
+    padding:0;
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background:#fff;
+    border:0;
+    outline:0;
+    cursor:pointer;
+    line-height:1.2;
+}
+
+.select-wrap::after{
+    content:"▼";
+    position:absolute;
+    right:2px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#fff;
+    font-size:10px;
+    pointer-events:none;
+}
+
+select option{
+    background:#fff;
+    color:#000;
+    font-family:"Times New Roman",Times,serif;
+    font-size:10pt;
+}
+
+/* =========================================================
+   AREA
+   ========================================================= */
+
+.area-table{
+    margin-bottom:15px;
+}
+
+.area-table td:first-child{
+    width:45px;
+    font-size:10pt;
+    font-weight:bold;
+    line-height:1.1;
+}
+
+.area-options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:8px;
+    font-size:9pt;
+    line-height:1.1;
+}
+
+.area-options label{
+    display:flex;
+    align-items:center;
+    white-space:nowrap;
+    line-height:1.1;
+}
+
+.fac-att{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    font-size:8pt;
+}
+
+.fac-att label{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    line-height:1.1;
+}
+
+/* =========================================================
+   TOPICS
+   ========================================================= */
+
+.topics-table th{
+    width:50%;
+    font-size:9pt;
+}
+
+.topics-table td{
+    min-height:30px;
+    font-size:10pt;
+}
+
+.topic{
+    display:flex;
+    align-items:center;
+    width:100%;
+    line-height:1.1;
+}
+
+.topic input[type="text"]{
+    flex:1;
+    min-width:0;
+}
+
+.topic input[type="checkbox"]{
+    flex-shrink:0;
+}
+
+/* =========================================================
+   NOTES
+   ========================================================= */
+
+.notes-table{
+    margin-bottom:15px;
+}
+
+.notes-table td{
+    height:auto;
+    padding:0;
+}
+
+.notes-table textarea{
+    width:100%;
+    min-height:35px;
+    height:auto;
+    resize:none;
+    display:block;
+    overflow:hidden;
+    line-height:1.2;
+    padding:4px 6px;
+}
+
+/* =========================================================
+   PROBLEM / ACTION
+   ========================================================= */
+
+.problem-table{
+    margin-bottom:15px;
+}
+
+.problem-table th{
+    font-size:8pt;
+}
+
+.problem-table td{
+    height:30px;
+    padding:0;
+}
+
+.problem-table th:nth-child(1){
+    width:30%;
+}
+
+.problem-table th:nth-child(2){
+    width:30%;
+}
+
+.problem-table th:nth-child(3){
+    width:20%;
+}
+
+.problem-table th:nth-child(4){
+    width:20%;
+}
+
+.problem-table input[type="text"],
+.problem-table input[type="date"]{
+    height:29px;
+    line-height:1.2;
+}
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+input[type="date"]{
+    background:#fff;
+    color:transparent;
+}
+
+input[type="date"]::-webkit-datetime-edit{
+    color:transparent;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper{
+    color:transparent;
+}
+
+input[type="date"].has-value{
+    color:#000;
+}
+
+input[type="date"].has-value::-webkit-datetime-edit,
+input[type="date"].has-value::-webkit-datetime-edit-fields-wrapper{
+    color:#000;
+}
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+input[type="time"]{
+    background:#fff;
+}
+
+/* =========================================================
+   ATTENDANCE
+   ========================================================= */
+
+.attendance-table{
+    margin-bottom:15px;
+}
+
+.attendance-table th{
+    font-size:9pt;
+}
+
+.attendance-table td{
+    height:35px;
+    padding:2px 5px;
+}
+
+.attendance-table th:nth-child(1){
+    width:40%;
+}
+
+.attendance-table th:nth-child(2){
+    width:35%;
+}
+
+.attendance-table th:nth-child(3){
+    width:25%;
+}
+
+.attendance-table input[type="text"]{
+    height:29px;
+    line-height:1.2;
+}
+
+/* =========================================================
+   ROW CONTROL BUTTONS
+   ========================================================= */
+
+.row-controls{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:3px;
+    height:18px;
+    margin-top:-12px;
+    margin-bottom:15px;
+}
+
+.row-btn{
+    width:18px;
+    height:16px;
+    padding:0;
+    margin:0;
+    border:1px solid #fff;
+    border-radius:2px;
+    background:#eee;
+    color:#777;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    line-height:14px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.row-btn:hover{
+    background:#ddd;
+    color:#555;
+}
+
+.row-btn:active{
+    background:#ccc;
+}
+
+/* Hide controls when printing */
+
+@media print{
+
+    .row-controls{
+        display:none;
+    }
+}
+
+/* =========================================================
+   SUPERVISOR SIGN-OFF
+   ========================================================= */
+
+.footer{
+    margin-top:25px;
+    font-size:9pt;
+}
+
+.signoff{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-weight:bold;
+    white-space:nowrap;
+    line-height:1.1;
+}
+
+.sign-line{
+    display:inline-block;
+    width:130px;
+    height:18px;
+    border-bottom:1px solid #000;
+}
+
+/* Supervisor name writing space */
+
+.supervisor-input{
+    width:280px!important;
+    height:22px;
+    padding:0 2px!important;
+    border:0!important;
+    border-bottom:1px solid #000!important;
+    background:#fff!important;
+    line-height:1.1;
+}
+
+/* =========================================================
+   FOOTER NOTE
+   ========================================================= */
+
+.footer-disclaimer{
+    margin-top:8px;
+    font-size:7.5pt;
+    font-style:italic;
+    color:#555;
+    line-height:1.2;
+}
+
+/* =========================================================
+   MADE BY
+   ========================================================= */
+
+.made-by{
+    position:absolute;
+    right:5mm;
+    bottom:5mm;
+    font-family:Arial,sans-serif;
+    font-size:8pt;
+    color:#777;
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print{
+
+    body{
+        background:#fff;
+    }
+
+    .page{
+        width:100%;
+        min-height:auto;
+        margin:0;
+        padding:15mm 20mm;
+    }
+
+    input,
+    select,
+    textarea{
+        background:#fff!important;
+    }
+
+    .made-by{
+        display:none;
+    }
+
+    @page{
+        size:A4 portrait;
+        margin:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="header">
+<h1>KSRM STEEL PLANT Ltd. (MELTING)</h1>
+<h2>TOOLBOX TALK & SHIFT HUDDLE — OFFICIAL MEETING RECORD</h2>
+<p>Dept: Mechanical Engineering</p>
+</div>
+
+
+<!-- =====================================================
+     INFORMATION
+     ===================================================== -->
+
+<table class="info-table">
+
+<tr>
+
+<td class="label">Date:</td>
+
+<td style="width:20%">
+<input type="date" id="meetingDate">
+</td>
+
+<td style="width:25%">
+
+<div class="select-wrap">
+
+<select id="groupDropdown">
+
+<option value="">*Select a group*</option>
+
+<option value="A">Jamal Group</option>
+<option value="B">Subash Group</option>
+<option value="C">Taher Group</option>
+<option value="R">Hemel Group</option>
+<option value="G">Amir Group</option>
+
+</select>
+
+</div>
+
+</td>
+
+<td style="width:25%">
+
+<div class="shift">
+
+<b>Shift:</b>
+
+<label>
+<input type="checkbox">A
+</label>
+
+<label>
+<input type="checkbox">B
+</label>
+
+<label>
+<input type="checkbox">C
+</label>
+
+<label>
+<input type="checkbox">G
+</label>
+
+</div>
+
+</td>
+
+<td style="width:30%" class="label">
+
+Time:
+<input type="time" id="meetingTime">
+
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     AREA
+     ===================================================== -->
+
+<table class="area-table">
+
+<tr>
+
+<td rowspan="2">Area:</td>
+
+<td>
+
+<div class="area-options">
+
+<label>
+<input type="checkbox" checked>
+Furnace &amp; LRF
+</label>
+
+<label>
+<input type="checkbox">
+WTP
+</label>
+
+<label>
+<input type="checkbox">
+Compressor
+</label>
+
+<label>
+<input type="checkbox">
+Oxygen Plant
+</label>
+
+</div>
+
+<div class="fac-att">
+
+<label>
+Facilitator:
+<input type="text" id="facilitator">
+</label>
+
+<label>
+Attendees:
+<input type="text" id="attendees">
+</label>
+
+</div>
+
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     TOPICS
+     ===================================================== -->
+
+<table class="topics-table">
+
+<tr>
+
+<th>Topics Covered Today</th>
+<th>Topics Covered Today</th>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="PPE & LOTO Verified">
+</div>
+</td>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Permits (hot work / confined space)">
+</div>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Area-specific hazards reviewed">
+</div>
+</td>
+
+<td>
+<div class="topic">
+<input type="checkbox">
+<input type="text" value="Near-miss / incident follow-up">
+</div>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Housekeeping & 5S">
+</div>
+</td>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Ethical Standards & Honest Reporting">
+</div>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Recognition / positive feedback">
+</div>
+</td>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Handover Notes & Manpower">
+</div>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Spares / tools availability">
+</div>
+</td>
+
+<td>
+<div class="topic">
+<input type="checkbox" checked>
+<input type="text" value="Fatigue / Roster Concerns Discussed">
+</div>
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     NOTES
+     NO ADD / DELETE BUTTON
+     AUTO EXPANDING
+     ===================================================== -->
+
+<table class="notes-table" id="notesTable">
+
+<tr>
+<th>Key Discussion Points / Notes</th>
+</tr>
+
+<tr class="notes-row">
+
+<td>
+
+<textarea
+oninput="autoResizeNotes(this)"
+></textarea>
+
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- =====================================================
+     PROBLEM / ACTION
+     STARTS WITH ONE ROW
+     ===================================================== -->
+
+<table class="problem-table" id="problemTable">
+
+<tr>
+
+<th>Problem / Issue Raised</th>
+<th>Action Agreed</th>
+<th>Owner</th>
+<th>Due Date</th>
+
+</tr>
+
+<tr class="problem-row">
+
+<td>
+<input type="text">
+</td>
+
+<td>
+<input type="text">
+</td>
+
+<td>
+<input type="text">
+</td>
+
+<td>
+<input type="date" class="due-date">
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- PROBLEM ROW CONTROLS -->
+
+<div class="row-controls">
+
+<button
+type="button"
+class="row-btn"
+onclick="addProblemRow()"
+title="Add row"
+>+</button>
+
+<button
+type="button"
+class="row-btn"
+onclick="deleteProblemRow()"
+title="Delete last row"
+>−</button>
+
+</div>
+
+
+<!-- =====================================================
+     ATTENDANCE
+     STARTS WITH ONE ROW
+     ===================================================== -->
+
+<table class="attendance-table" id="attendanceTable">
+
+<tr>
+
+<th>Attendee Name</th>
+<th>Designation</th>
+<th>Signature</th>
+
+</tr>
+
+<tr class="attendance-row">
+
+<td>
+
+<input
+type="text"
+list="employeeList"
+>
+
+</td>
+
+<td>
+
+<div class="select-wrap">
+
+<select class="designation">
+
+<option value=""></option>
+
+</select>
+
+</div>
+
+</td>
+
+<td></td>
+
+</tr>
+
+</table>
+
+
+<!-- ATTENDANCE ROW CONTROLS -->
+
+<div class="row-controls">
+
+<button
+type="button"
+class="row-btn"
+onclick="addAttendanceRow()"
+title="Add row"
+>+</button>
+
+<button
+type="button"
+class="row-btn"
+onclick="deleteAttendanceRow()"
+title="Delete last row"
+>−</button>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<div class="footer">
+
+<div class="signoff">
+
+<span>Supervisor sign-off:</span>
+
+<span class="sign-line"></span>
+
+<span>Name &amp; Designation:</span>
+
+<input
+type="text"
+class="supervisor-input"
+id="supervisorInput"
+list="supervisorList"
+>
+
+</div>
+
+<div class="footer-disclaimer">
+
+This record is to be retained on file as evidence of daily safety and coordination briefing per plant SOP.
+
+</div>
+
+</div>
+
+
+<div class="made-by">
+Made by @shorab
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DATA LISTS
+     ===================================================== -->
+
+<datalist id="employeeList"></datalist>
+
+<datalist id="supervisorList"></datalist>
+
+
+<script>
+
+/* =========================================================
+   EMPLOYEES
+   ========================================================= */
+
+const employees={
+
+A:[
+"Md. Jamal Uddin",
+"Rakibul Hasan",
+"Mohammad Elias",
+"Md. Jahidul Islam",
+"Khairul Islam"
+],
+
+B:[
+"Subash Dey",
+"Md. Jahangir Alam",
+"Bapon Barua",
+"Md. Sumon Mia",
+"Iqram Hossain"
+],
+
+C:[
+"Abu Taher",
+"Md. Sohel Rana",
+"Shofiqur Rahman",
+"Md. Rafiq Mia (F)",
+"Md. Abdur Razzak"
+],
+
+R:[
+"Md. Hemel Mia",
+"Jahidul Hoaque",
+"Mohammed Jabed",
+"Md. Firoz",
+"Nur Uddin -3"
+],
+
+G:[
+"Md. Amir Hossain",
+"Md. Khaledur Roshid",
+"Hiru Mia",
+"Towhidul islam",
+"Md. Altaf Hossain",
+"Fakhrul Islam",
+"Md. Raju"
+]
+
+};
+
+
+/* =========================================================
+   SUPERVISORS
+   ========================================================= */
+
+const supervisors={
+
+A:[
+"MD Riaz Uddin",
+"Md. Shameem Majhi",
+"MD Riaz Uddin & Md. Shameem Majhi"
+],
+
+B:[
+"Md. S. H. Azam Khan",
+"Mahinur Rashid",
+"Md. S. H. Azam Khan & Md. S. H. Azam Khan"
+],
+
+C:[
+"Mijanur Rahman",
+"Md. Shorab Ali",
+"Mijanur Rahman & Md. Shorab Ali"
+],
+
+R:[
+"S.M. Rubayet Khan",
+"Monir Hossain Meharaz",
+"S.M. Rubayet Khan & Monir Hossain Meharaz"
+],
+
+G:[
+"S.M. Rubayet Khan",
+"Monir Hossain Meharaz",
+"S.M. Rubayet Khan & Monir Hossain Meharaz"
+]
+
+};
+
+
+/* =========================================================
+   DESIGNATIONS
+   ========================================================= */
+
+const designations=[
+
+"Sr.Technician",
+"Technician",
+"Asst. Technician",
+"Jr. Technician",
+"Helper",
+"Foreman",
+"Asst.Foreman",
+"Sr. Argon welder"
+
+];
+
+
+/* =========================================================
+   FILL DATA LIST
+   ========================================================= */
+
+function fillList(id,data){
+
+const list=document.getElementById(id);
+
+list.innerHTML="";
+
+data.forEach(name=>{
+
+const option=document.createElement("option");
+
+option.value=name;
+
+list.appendChild(option);
+
+});
+
+}
+
+
+/* =========================================================
+   GROUP CHANGE
+   ========================================================= */
+
+document
+.getElementById("groupDropdown")
+.addEventListener("change",function(){
+
+const group=this.value;
+
+fillList(
+"employeeList",
+employees[group]||[]
+);
+
+fillList(
+"supervisorList",
+supervisors[group]||[]
+);
+
+document
+.querySelectorAll(".attendance-table input[type='text']")
+.forEach(input=>{
+
+input.value="";
+
+});
+
+document
+.querySelectorAll(".designation")
+.forEach(select=>{
+
+select.value="";
+
+});
+
+document
+.getElementById("supervisorInput")
+.value="";
+
+});
+
+
+/* =========================================================
+   DATE UPDATE
+   ========================================================= */
+
+function updateDateField(input){
+
+if(input.value){
+
+input.classList.add("has-value");
+
+}else{
+
+input.classList.remove("has-value");
+
+}
+
+}
+
+
+/* =========================================================
+   DATE HANDLER
+   ========================================================= */
+
+function attachDateHandler(input){
+
+input.addEventListener(
+"change",
+()=>updateDateField(input)
+);
+
+}
+
+
+/* =========================================================
+   EXISTING DATE FIELDS
+   ========================================================= */
+
+document
+.querySelectorAll("input[type='date']")
+.forEach(input=>{
+
+attachDateHandler(input);
+
+});
+
+
+/* =========================================================
+   DEFAULT MEETING DATE
+   ========================================================= */
+
+const meetingDate=
+document.getElementById("meetingDate");
+
+meetingDate.value=
+new Date()
+.toISOString()
+.split("T")[0];
+
+updateDateField(meetingDate);
+
+
+/* =========================================================
+   DEFAULT MEETING TIME
+   ========================================================= */
+
+const now=new Date();
+
+document
+.getElementById("meetingTime")
+.value=
+now
+.toTimeString()
+.slice(0,5);
+
+
+/* =========================================================
+   DESIGNATION DROPDOWN
+   ========================================================= */
+
+function fillDesignation(select){
+
+select.innerHTML=
+'<option value=""></option>';
+
+designations.forEach(name=>{
+
+const option=
+document.createElement("option");
+
+option.value=name;
+
+option.textContent=name;
+
+select.appendChild(option);
+
+});
+
+}
+
+
+/* =========================================================
+   INITIAL DESIGNATION
+   ========================================================= */
+
+document
+.querySelectorAll(".designation")
+.forEach(select=>{
+
+fillDesignation(select);
+
+});
+
+
+/* =========================================================
+   AUTO EXPAND NOTES
+   ========================================================= */
+
+function autoResizeNotes(textarea){
+
+textarea.style.height="auto";
+
+textarea.style.height=
+textarea.scrollHeight+"px";
+
+}
+
+
+/* =========================================================
+   ADD ATTENDANCE ROW
+   ========================================================= */
+
+function addAttendanceRow(){
+
+const table=
+document.getElementById("attendanceTable");
+
+const row=
+table.insertRow(-1);
+
+row.className="attendance-row";
+
+
+const cell1=
+row.insertCell(0);
+
+const cell2=
+row.insertCell(1);
+
+const cell3=
+row.insertCell(2);
+
+
+cell1.innerHTML=
+'<input type="text" list="employeeList">';
+
+
+cell2.innerHTML=
+'<div class="select-wrap">' +
+'<select class="designation"></select>' +
+'</div>';
+
+
+cell3.innerHTML="";
+
+
+fillDesignation(
+cell2.querySelector(".designation")
+);
+
+}
+
+
+/* =========================================================
+   DELETE ATTENDANCE ROW
+   ========================================================= */
+
+function deleteAttendanceRow(){
+
+const table=
+document.getElementById("attendanceTable");
+
+const rows=
+table.querySelectorAll(".attendance-row");
+
+/*
+   Keep the original first row.
+*/
+
+if(rows.length>1){
+
+rows[rows.length-1].remove();
+
+}
+
+}
+
+
+/* =========================================================
+   ADD PROBLEM ROW
+   ========================================================= */
+
+function addProblemRow(){
+
+const table=
+document.getElementById("problemTable");
+
+const row=
+table.insertRow(-1);
+
+row.className="problem-row";
+
+
+const cell1=
+row.insertCell(0);
+
+const cell2=
+row.insertCell(1);
+
+const cell3=
+row.insertCell(2);
+
+const cell4=
+row.insertCell(3);
+
+
+cell1.innerHTML=
+'<input type="text">';
+
+cell2.innerHTML=
+'<input type="text">';
+
+cell3.innerHTML=
+'<input type="text">';
+
+cell4.innerHTML=
+'<input type="date" class="due-date">';
+
+
+const dateInput=
+cell4.querySelector(
+"input[type='date']"
+);
+
+attachDateHandler(dateInput);
+
+}
+
+
+/* =========================================================
+   DELETE PROBLEM ROW
+   ========================================================= */
+
+function deleteProblemRow(){
+
+const table=
+document.getElementById("problemTable");
+
+const rows=
+table.querySelectorAll(".problem-row");
+
+/*
+   Keep the original first row.
+*/
+
+if(rows.length>1){
+
+rows[rows.length-1].remove();
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
